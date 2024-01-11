@@ -90,6 +90,13 @@
             ]
           }
         }
+      },
+      "ehrgen": {
+        "config": {
+          "name": "BallerinaEHRFhirServiceGenerationTool",
+          "enable": false,
+          "projectName": "ehr-fhir-prebuilt-service"
+        }
       }
     },
     "terminologies": [

@@ -22,6 +22,7 @@ public class HealthCmdConstants {
 
     public static final String CMD_MODE_TEMPLATE = "template";
     public static final String CMD_MODE_PACKAGE = "package";
+    public static final String CMD_MODE_EHR_SERVICE_GEN = "ehr";
     public static final String CMD_SUB_FHIR = "fhir";
     public static final String CMD_SUB_HL7 = "hl7";
     public static final String CMD_CONFIG_FILENAME = "tool-config.json";

@@ -88,6 +88,12 @@ public class FhirSubCmd implements BLauncherCmd {
     @CommandLine.Option(names = "--dependent-package", description = "Dependent package name for the templates to be generated")
     private String dependentPackage;
 
+    @CommandLine.Option(names = "--project-name", description = "Project name for the prebuilt service to be generated")
+    private String projectName;
+
+    @CommandLine.Option(names = "--capability-statement", description = "Capability statement path")
+    private String capabilityStatementPath;
+
 
     @CommandLine.Parameters(description = "Custom arguments")
     private List<String> argList;
@@ -209,6 +215,8 @@ public class FhirSubCmd implements BLauncherCmd {
         argsMap.put("--included-profile", includedProfiles);
         argsMap.put("--excluded-profile", excludedProfiles);
         argsMap.put("--dependent-package", dependentPackage);
+        argsMap.put("--project-name", projectName);
+        argsMap.put("--capability-statement", capabilityStatementPath);
         getTargetOutputPath();
         //spec path is the last argument
         try {
@@ -217,7 +225,7 @@ public class FhirSubCmd implements BLauncherCmd {
             printStream.println(HealthCmdConstants.PrintStrings.INVALID_SPEC_PATH);
             throw new BLauncherException();
         }
-        Handler toolHandler = null;
+        Handler toolHandler;
         try {
             toolHandler = HandlerFactory.createHandler(mode, printStream, specificationPath.toString());
         } catch (BallerinaHealthException e) {

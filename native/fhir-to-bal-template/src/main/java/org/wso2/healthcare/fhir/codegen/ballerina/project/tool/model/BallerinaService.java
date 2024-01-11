@@ -39,6 +39,8 @@ public class BallerinaService {
     private List<SearchParam> searchParamConfigs;
     private List<ResourceMethod> resourceMethods;
     private List<String> igs;
+    private FHIRInteractionMethods fhirInteractionMethodsContent;
+    private int port;
 
     public BallerinaService(String name, String fhirVersion) {
         this.name = name;
@@ -50,6 +52,9 @@ public class BallerinaService {
         searchParamConfigs = new ArrayList<>();
         igs = new ArrayList<>();
         profileList = new ArrayList<>();
+        this.fhirInteractionMethodsContent = new FHIRInteractionMethods();
+        //default port
+        this.port = 9090;
     }
 
     public String getName() {
@@ -125,5 +130,21 @@ public class BallerinaService {
 
     public void addFhirProfile(FHIRProfile profile){
         profileList.add(profile);
+    }
+
+    public FHIRInteractionMethods getFhirInteractionMethodsContent() {
+        return fhirInteractionMethodsContent;
+    }
+
+    public void setFhirInteractionMethodsContent(FHIRInteractionMethods fhirInteractionMethodsContent) {
+        this.fhirInteractionMethodsContent = fhirInteractionMethodsContent;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 }
